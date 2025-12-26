@@ -1,0 +1,24 @@
+GET http://localhost:4000/api/category
+
+###
+POST http://localhost:4000/api/category
+Content-Type: application/json
+
+{
+    "name": "comida"
+}
+
+###
+GET http://localhost:4000/api/category/8
+
+###
+PATCH http://localhost:4000/api/category/11
+Content-Type: application/json
+
+{
+    "name": "Juguetes"
+}
+
+###
+DELETE http://localhost:4000/api/category/10
+
