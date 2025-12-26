@@ -6,6 +6,13 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  // habilitar CORS
+  app.enableCors({
+    origin: '*', // permite todos los dominios (puedes reemplazarlo por un array de URLs)
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    credentials: true,
+  });
+
   // validación global
   app.useGlobalPipes(new ValidationPipe({
     whitelist: true,
@@ -24,7 +31,7 @@ async function bootstrap() {
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api-docs', app, document); // la documentación estará en /api-docs
+  SwaggerModule.setup('api-docs', app, document); // documentación en /api-docs
 
   await app.listen(process.env.PORT ?? 4000);
 }
