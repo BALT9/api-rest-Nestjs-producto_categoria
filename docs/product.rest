@@ -1,0 +1,30 @@
+GET http://localhost:4000/api/product
+
+###
+POST http://localhost:4000/api/product
+Content-Type: application/json
+
+{
+  "name": "Paneton Navideño",
+  "price": 50,
+  "description": "San Gabriel",
+  "categoryId": 8
+}
+
+###
+GET http://localhost:4000/api/product/1
+
+###
+PATCH http://localhost:4000/api/product/1
+Content-Type: application/json
+
+{
+  "name": "Monitor AG",
+  "price": 1000,
+  "description": "Monitor de última generación",
+  "categoryId": 7
+}
+
+###
+DELETE http://localhost:4000/api/product/3
+
